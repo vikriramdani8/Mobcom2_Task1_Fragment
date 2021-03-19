@@ -14,11 +14,15 @@ class MainActivity : AppCompatActivity(), Communicator {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragmentA).commit()
     }
 
+    override fun back() {
+        val fragmentA = FragmentA()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, fragmentA).commit()
+    }
+
     override fun passDataCom(editTextInput: String) {
         val bundle = Bundle()
         bundle.putString("message", editTextInput)
-
-        println(editTextInput)
 
         val transaction = supportFragmentManager.beginTransaction()
         val fragmentB = FragmentB()
