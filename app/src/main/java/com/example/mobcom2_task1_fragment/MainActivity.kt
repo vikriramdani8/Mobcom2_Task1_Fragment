@@ -18,10 +18,12 @@ class MainActivity : AppCompatActivity(), Communicator {
         val bundle = Bundle()
         bundle.putString("message", editTextInput)
 
-        val transaction = this.supportFragmentManager.beginTransaction()
+        println(editTextInput)
+
+        val transaction = supportFragmentManager.beginTransaction()
         val fragmentB = FragmentB()
 
         fragmentB.arguments = bundle
-        transaction.replace(R.id.fragment_container, fragmentB)
+        transaction.replace(R.id.fragment_container, fragmentB).commit()
     }
 }
